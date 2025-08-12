@@ -1,84 +1,75 @@
-// app/(tabs)/index.tsx
-import React from 'react';
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image } from 'expo-image';
+import { Platform, StyleSheet } from 'react-native';
 
-const produtos = [
-  { id: '1', nome: 'Hambúrguer Clássico', preco: 25.00, imagem: require('@/assets/images/burger.png') },
-  { id: '2', nome: 'Hambúrguer Duplo', preco: 30.00, imagem: require('@/assets/images/burger.png') },
-  { id: '3', nome: 'Cheeseburger', preco: 28.00, imagem: require('@/assets/images/burger.png') },
-  { id: '4', nome: 'Bacon Burger', preco: 32.00, imagem: require('@/assets/images/burger.png') },
-  { id: '5', nome: 'Veggie Burger', preco: 27.00, imagem: require('@/assets/images/burger.png') },
-  { id: '6', nome: 'Frango Burger', preco: 26.00, imagem: require('@/assets/images/burger.png') },
-  { id: '7', nome: 'Burger BBQ', preco: 33.00, imagem: require('@/assets/images/burger.png') },
-  { id: '8', nome: 'Burger Especial', preco: 35.00, imagem: require('@/assets/images/burger.png') },
-  { id: '9', nome: 'Burger Picante', preco: 29.00, imagem: require('@/assets/images/burger.png') },
-  { id: '10', nome: 'Burger Premium', preco: 40.00, imagem: require('@/assets/images/burger.png') },
-];
+import { HelloWave } from '@/components/HelloWave';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { ThemedText } from '@/components/ThemedText';
+import { ThemedView } from '@/components/ThemedView';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Flow na Chapa</Text>
-
-      <FlatList
-        data={produtos}
-        numColumns={2}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.lista}
-        renderItem={({ item }) => (
-          <TouchableOpacity style={styles.card}>
-            <Image source={item.imagem} style={styles.imagem} />
-            <Text style={styles.nome}>{item.nome}</Text>
-            <Text style={styles.preco}>R$ {item.preco.toFixed(2)}</Text>
-          </TouchableOpacity>
-        )}
-      />
-    </View>
+    <ParallaxScrollView
+      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerImage={
+        <Image
+          source={require('@/assets/images/partial-react-logo.png')}
+          style={styles.reactLogo}
+        />
+      }>
+      <ThemedView style={styles.titleContainer}>
+        <ThemedText type="title">Welcome!</ThemedText>
+        <HelloWave />
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+        <ThemedText>
+          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
+          Press{' '}
+          <ThemedText type="defaultSemiBold">
+            {Platform.select({
+              ios: 'cmd + d',
+              android: 'cmd + m',
+              web: 'F12',
+            })}
+          </ThemedText>{' '}
+          to open developer tools.
+        </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+        <ThemedText>
+          {`Tap the Explore tab to learn more about what's included in this starter app.`}
+        </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
+        <ThemedText>
+          {`When you're ready, run `}
+          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
+          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
+          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
+          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+        </ThemedText>
+      </ThemedView>
+    </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: 50,
-  },
-  header: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-  lista: {
-    paddingHorizontal: 10,
-  },
-  card: {
-    flex: 1,
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    margin: 8,
-    padding: 10,
+  titleContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    elevation: 2,
+    gap: 8,
   },
-  imagem: {
-    width: 120,
-    height: 120,
-    borderRadius: 8,
+  stepContainer: {
+    gap: 8,
+    marginBottom: 8,
   },
-  nome: {
-    fontSize: 14,
-    fontWeight: '600',
-    marginTop: 5,
-    textAlign: 'center',
-  },
-  preco: {
-    fontSize: 14,
-    color: '#555',
-    marginTop: 2,
+  reactLogo: {
+    height: 178,
+    width: 290,
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
   },
 });
