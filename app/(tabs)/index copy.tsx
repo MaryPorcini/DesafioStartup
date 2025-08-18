@@ -1,7 +1,7 @@
-// app/(tabs)/index.tsx
 import React from 'react';
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+// Lista de produtos
 const produtos = [
   { id: '1', nome: 'Hambúrguer Clássico', preco: 25.00, imagem: require('@/assets/images/burger.png') },
   { id: '2', nome: 'Hambúrguer Duplo', preco: 30.00, imagem: require('@/assets/images/burger.png') },
@@ -16,10 +16,22 @@ const produtos = [
 ];
 
 export default function HomeScreen() {
+  // Função ao clicar no botão
+  const handleClick = () => {
+    Alert.alert("Pedido", "Você clicou no botão!");
+  };
+
   return (
     <View style={styles.container}>
+      <Image source={require('@/assets/images/logo.png')} style={styles.logo} />
       <Text style={styles.header}>Flow na Chapa</Text>
 
+      {/* Botão */}
+      <TouchableOpacity style={styles.botao} onPress={handleClick}>
+        <Text style={styles.botaoTexto}>Fazer Pedido</Text>
+      </TouchableOpacity>
+
+      {/* Lista de Produtos */}
       <FlatList
         data={produtos}
         numColumns={2}
@@ -40,45 +52,77 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: 50,
+    backgroundColor: '#121212',
+    paddingTop: 40,
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    alignSelf: 'center',
+    marginBottom: 10,
+    resizeMode: 'contain',
   },
   header: {
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 15,
+    color: '#FF3D00',
+    letterSpacing: 1.5,
+  },
+  botao: {
+    backgroundColor: '#FF3D00',
+    marginHorizontal: 50,
+    paddingVertical: 12,
+    borderRadius: 25,
+    alignItems: 'center',
+    marginBottom: 20,
+    shadowColor: '#000',
+    shadowOpacity: 0.3,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 6,
+    elevation: 5,
+  },
+  botaoTexto: {
+    color: '#FFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+    letterSpacing: 1,
   },
   lista: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 12,
+    paddingBottom: 20,
   },
   card: {
     flex: 1,
-    backgroundColor: '#fff',
-    borderRadius: 10,
+    backgroundColor: '#1E1E1E',
+    borderRadius: 16,
     margin: 8,
-    padding: 10,
+    padding: 12,
     alignItems: 'center',
     shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    elevation: 2,
+    shadowOpacity: 0.3,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 6,
+    elevation: 5,
   },
   imagem: {
-    width: 120,
-    height: 120,
-    borderRadius: 8,
+    width: 110,
+    height: 110,
+    borderRadius: 12,
+    marginBottom: 8,
   },
   nome: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '600',
-    marginTop: 5,
+    marginTop: 4,
     textAlign: 'center',
+    color: '#FFF',
   },
   preco: {
     fontSize: 14,
-    color: '#555',
-    marginTop: 2,
+    color: '#FFB74D',
+    marginTop: 3,
+    fontWeight: 'bold',
   },
 });
