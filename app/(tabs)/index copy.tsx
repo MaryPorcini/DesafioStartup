@@ -24,6 +24,14 @@ const produtos = [
   { id: '20', nome: 'Água do Free', preco: 2.99, imagem: require('@/assets/images/agua.png') },
   { id: '21', nome: 'Água do Free c/Gás', preco: 3.99, imagem: require('@/assets/images/agua_gas.png') },
   { id: '22', nome: 'Suco do Trap', preco: 11.99, imagem: require('@/assets/images/suco_trap.png') },
+  { id: '23', nome: 'Batata no Beat', preco: 24.99, imagem: require('@/assets/images/batata.png') },
+  { id: '24', nome: 'Tropa do Frango', preco: 30.99, imagem: require('@/assets/images/frango.png') },
+  { id: '25', nome: 'Drop de Calabresa', preco: 15.99, imagem: require('@/assets/images/calabresa.png') },
+  { id: '26', nome: 'TrapCoração', preco: 11.99, imagem: require('@/assets/images/coracao.png') },
+  { id: '27', nome: 'Peixe no Drop', preco: 24.99, imagem: require('@/assets/images/peixe.png') },
+  { id: '28', nome: 'Anel da Quebrada', preco: 20.99, imagem: require('@/assets/images/cebola.png') },
+  { id: '29', nome: 'Punchline de Carne', preco: 26.99, imagem: require('@/assets/images/carne.png') },
+  { id: '30', nome: 'Camarao de Quebrada', preco: 35.99, imagem: require('@/assets/images/camarao.png') },
 ];
 
 export default function HomeScreen() {
