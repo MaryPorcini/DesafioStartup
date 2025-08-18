@@ -1,18 +1,27 @@
-import React from 'react';
 import { Alert, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 // Lista de produtos
 const produtos = [
-  { id: '1', nome: 'Hambúrguer Clássico', preco: 25.00, imagem: require('@/assets/images/burger.png') },
-  { id: '2', nome: 'Hambúrguer Duplo', preco: 30.00, imagem: require('@/assets/images/burger.png') },
-  { id: '3', nome: 'Cheeseburger', preco: 28.00, imagem: require('@/assets/images/burger.png') },
-  { id: '4', nome: 'Bacon Burger', preco: 32.00, imagem: require('@/assets/images/burger.png') },
-  { id: '5', nome: 'Veggie Burger', preco: 27.00, imagem: require('@/assets/images/burger.png') },
-  { id: '6', nome: 'Frango Burger', preco: 26.00, imagem: require('@/assets/images/burger.png') },
-  { id: '7', nome: 'Burger BBQ', preco: 33.00, imagem: require('@/assets/images/burger.png') },
-  { id: '8', nome: 'Burger Especial', preco: 35.00, imagem: require('@/assets/images/burger.png') },
-  { id: '9', nome: 'Burger Picante', preco: 29.00, imagem: require('@/assets/images/burger.png') },
-  { id: '10', nome: 'Burger Premium', preco: 40.00, imagem: require('@/assets/images/burger.png') },
+  { id: '1', nome: 'Smash da Rima', preco: 25.00, imagem: require('@/assets/images/smash_burger.png') },
+  { id: '2', nome: 'Trap Cheddar', preco: 30.00, imagem: require('@/assets/images/Trap_Cheddar.png') },
+  { id: '3', nome: 'Bacon Punchline', preco: 32.00, imagem: require('@/assets/images/Bacon_Punchline.png') },
+  { id: '4', nome: 'X-Beat', preco: 30.00, imagem: require('@/assets/images/X_beat.png') },
+  { id: '5', nome: 'O Mais brabo da quebrada', preco: 45.00, imagem: require('@/assets/images/O_mais_brabo_da_quebrada.png') },
+  { id: '6', nome: 'Verso Apimentado', preco: 33.00, imagem: require('@/assets/images/Verso_apimentado.png') },
+  { id: '7', nome: 'Chiken no Flow', preco: 35.00, imagem: require('@/assets/images/Chiken_no_Flow.png') },
+  { id: '8', nome: 'Fatality de Costela', preco: 40.00, imagem: require('@/assets/images/Fatality_de_Costela.png') },
+  { id: '9', nome: 'Surfando no Beat', preco: 35.00, imagem: require('@/assets/images/Surfando_no_beat.png') },
+  { id: '10', nome: 'Gim e Verso', preco: 37.00, imagem: require('@/assets/images/gin_verso.png') },
+  { id: '11', nome: 'Beat Suíno', preco: 37.00, imagem: require('@/assets/images/Beat_Suino.png') },
+  { id: '12', nome: 'Beat Suíno', preco: 37.00, imagem: require('@/assets/images/Beat_Suino.png') },
+  { id: '13', nome: 'Beat Suíno', preco: 37.00, imagem: require('@/assets/images/Beat_Suino.png') },
+  { id: '14', nome: 'Beat Suíno', preco: 37.00, imagem: require('@/assets/images/Beat_Suino.png') },
+  { id: '15', nome: 'Beat Suíno', preco: 37.00, imagem: require('@/assets/images/Beat_Suino.png') },
+  { id: '16', nome: 'Beat Suíno', preco: 37.00, imagem: require('@/assets/images/Beat_Suino.png') },
+  { id: '17', nome: 'Beat Suíno', preco: 37.00, imagem: require('@/assets/images/Beat_Suino.png') },
+  { id: '18', nome: 'Beat Suíno', preco: 37.00, imagem: require('@/assets/images/Beat_Suino.png') },
+  { id: '19', nome: 'Beat Suíno', preco: 37.00, imagem: require('@/assets/images/Beat_Suino.png') },
+  { id: '20', nome: 'Beat Suíno', preco: 37.00, imagem: require('@/assets/images/Beat_Suino.png') },
 ];
 
 export default function HomeScreen() {
